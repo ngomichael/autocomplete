@@ -7,7 +7,11 @@ class Player extends Component {
   }
 
   render() {
-    return <div>{this.props.name}</div>;
+    return (
+      <React.Fragment>
+        <p>{this.props.name}</p>
+      </React.Fragment>
+    );
   }
 }
 
