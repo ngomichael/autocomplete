@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styles from "./styles.css";
 
 class Player extends Component {
   constructor(props) {

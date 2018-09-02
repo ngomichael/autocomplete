@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import styles from "./styles.css";
 import PlayersList from "./PlayersList/PlayersList";
+import styled from "styled-components";
 
 const basketballPlayers = [
   {
@@ -25,6 +25,13 @@ const basketballPlayers = [
     name: "Lebron James Jr"
   }
 ];
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 class Autocomplete extends Component {
   constructor(props) {
@@ -58,7 +65,7 @@ class Autocomplete extends Component {
       player.includes(this.state.inputText)
     );
     return (
-      <div>
+      <Wrapper>
         <form onSubmit={this.onSubmit}>
           <input
             type="text"
@@ -67,7 +74,7 @@ class Autocomplete extends Component {
           />
         </form>
         <PlayersList players={filteredPlayers} />
-      </div>
+      </Wrapper>
     );
   }
 }

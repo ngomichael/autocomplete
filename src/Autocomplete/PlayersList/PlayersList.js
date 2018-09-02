@@ -1,12 +1,28 @@
 import React, { Component } from "react";
-import styles from "./styles.css";
 import Player from "../Player/Player";
+import styled from "styled-components";
+
+const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  padding: 0;
+`;
+
+const PlayerName = styled.li`
+  background-color: lightgray;
+  border-bottom: 1px solid gray;
+  list-style: none;
+  width: 100%;
+`;
 
 const createPlayersList = player => {
   return (
-    <li key={player} className={styles.player}>
+    <PlayerName key={player}>
       <Player name={player} />
-    </li>
+    </PlayerName>
   );
 };
 
@@ -17,7 +33,7 @@ class PlayersList extends Component {
 
   render() {
     const { players } = this.props;
-    return <ul>{players.map(player => createPlayersList(player))}</ul>;
+    return <List>{players.map(player => createPlayersList(player))}</List>;
   }
 }
 
