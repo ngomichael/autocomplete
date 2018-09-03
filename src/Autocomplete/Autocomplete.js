@@ -33,6 +33,40 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
+const Input = styled.input`
+  position: relative;
+  background: none;
+  width: 250px;
+  height: 25px;
+  border: none;
+  border-bottom: solid 2px purple;
+  font: 18px Open Sans, Lora;
+  padding: 0 0 1px 4px;
+  z-index: 1;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus + label {
+    transform: translate(10px, 10px);
+  }
+`;
+
+const InputLabel = styled.label`
+  margin-right: 15px;
+  font: 18px Open Sans, Lora;
+  // position: absolute;
+  // transition: 0.3s ease;
+`;
+
+const InputLabelContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 class Autocomplete extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +74,6 @@ class Autocomplete extends Component {
       inputText: ""
     };
     this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
   }
 
   //updates inputText state
@@ -48,10 +81,6 @@ class Autocomplete extends Component {
     this.setState({
       inputText: e.target.value
     });
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
   }
 
   debounce(func, wait) {
@@ -62,18 +91,22 @@ class Autocomplete extends Component {
   render() {
     const players = basketballPlayers.map(player => player.name);
     const filteredPlayers = players.filter(player =>
-      player.includes(this.state.inputText)
+      player.toLowerCase().includes(this.state.inputText.toLowerCase())
     );
     return (
       <Wrapper>
-        <form onSubmit={this.onSubmit}>
-          <input
+        <InputLabelContainer>
+          <InputLabel>Player Name:</InputLabel>
+          <Input
             type="text"
             value={this.state.inputText}
+            placeholder="Steph Curry"
             onChange={this.onChange}
           />
-        </form>
-        <PlayersList players={filteredPlayers} />
+        </InputLabelContainer>
+        {this.state.inputText.length > 0 && (
+          <PlayersList players={filteredPlayers} />
+        )}
       </Wrapper>
     );
   }

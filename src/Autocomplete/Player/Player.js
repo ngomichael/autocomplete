@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+
+const Name = styled.p`
+  padding-left: 20px;
+`;
 
 class Player extends Component {
   constructor(props) {
@@ -6,9 +11,10 @@ class Player extends Component {
   }
 
   render() {
+    const { name } = this.props;
     return (
       <React.Fragment>
-        <p>{this.props.name}</p>
+        <Name aria-label={name}>{name}</Name>
       </React.Fragment>
     );
   }

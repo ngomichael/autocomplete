@@ -7,13 +7,17 @@ const List = styled.ul`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-shadow: 3px 5px rgba(0, 0, 0, 0.05);
+  border: 1px solid lightgray;
+  border-radius: 2px;
   width: 50vw;
+  height: auto;
   padding: 0;
 `;
 
 const PlayerName = styled.li`
-  background-color: lightgray;
-  border-bottom: 1px solid gray;
+  text-align: left;
+  border-bottom: 1px solid rgba(191, 191, 191, 0.5);
   list-style: none;
   width: 100%;
 `;
