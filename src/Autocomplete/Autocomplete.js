@@ -31,6 +31,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 `;
 
 const Input = styled.input`
@@ -48,16 +49,27 @@ const Input = styled.input`
     outline: none;
   }
 
+  &:placeholder-shown + label {
+    color: rgba(191, 191, 191, 0.5);
+    font-size: 18px;
+    top: 0;
+  }
+
   &:focus + label {
-    transform: translate(10px, 10px);
+    color: black;
+    font-style: italic;
+    font-size: 15px;
+    top: -20px;
   }
 `;
 
 const InputLabel = styled.label`
-  margin-right: 15px;
-  font: 18px Open Sans, Lora;
-  // position: absolute;
-  // transition: 0.3s ease;
+  color: purple;
+  font: 15px Open Sans, Lora;
+  position: absolute;
+  left: 4px;
+  top: -20px;
+  transition: 0.3s ease;
 `;
 
 const InputLabelContainer = styled.div`
@@ -96,13 +108,13 @@ class Autocomplete extends Component {
     return (
       <Wrapper>
         <InputLabelContainer>
-          <InputLabel>Player Name:</InputLabel>
           <Input
             type="text"
             value={this.state.inputText}
-            placeholder="Steph Curry"
             onChange={this.onChange}
+            placeholder=" "
           />
+          <InputLabel htmlFor="text">Player Name</InputLabel>
         </InputLabelContainer>
         {this.state.inputText.length > 0 && (
           <PlayersList players={filteredPlayers} />
