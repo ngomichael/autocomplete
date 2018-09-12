@@ -12,6 +12,7 @@ class Player extends Component {
 
   render() {
     const { name } = this.props;
+    // console.log(name);
     return (
       <React.Fragment>
         <Name aria-label={name}>{name}</Name>

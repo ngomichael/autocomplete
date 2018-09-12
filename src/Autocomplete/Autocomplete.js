@@ -37,10 +37,10 @@ const Wrapper = styled.div`
 const Input = styled.input`
   position: relative;
   background: none;
-  width: 250px;
+  width: 300px;
   height: 25px;
   border: none;
-  border-bottom: solid 2px purple;
+  border-bottom: solid 2px #006600;
   font: 18px Open Sans, Lora;
   padding: 0 0 1px 4px;
   z-index: 1;
@@ -64,9 +64,9 @@ const Input = styled.input`
 `;
 
 const InputLabel = styled.label`
-  color: purple;
-  font: 15px Open Sans, Lora;
   position: absolute;
+  color: black;
+  font: italic 15px Open Sans, Lora;
   left: 4px;
   top: -20px;
   transition: 0.3s ease;
@@ -105,6 +105,7 @@ class Autocomplete extends Component {
     const filteredPlayers = players.filter(player =>
       player.toLowerCase().includes(this.state.inputText.toLowerCase())
     );
+    // console.log(filteredPlayers);
     return (
       <Wrapper>
         <InputLabelContainer>
@@ -116,6 +117,7 @@ class Autocomplete extends Component {
           />
           <InputLabel htmlFor="text">Player Name</InputLabel>
         </InputLabelContainer>
+        {/* filteredPlayers.length !== 0 && */}
         {this.state.inputText.length > 0 && (
           <PlayersList players={filteredPlayers} />
         )}
