@@ -1,3 +1,10 @@
+# What is this project?
+- This is an autocomplete that allows you to search for basketball players!
+
+# Goal(s) of this project?
+- For this project I really wanted to play around with animations and see what I could come up with. I also wanted to learn how to use styled components and incorporate accessibility and cross-compatibility.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
